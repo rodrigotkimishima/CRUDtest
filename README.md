@@ -1,4 +1,4 @@
-#Para Criar o Banco de dados
+# Para Criar o Banco de dados
 
 
 CREATE TABLE aluno (
