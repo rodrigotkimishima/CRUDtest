@@ -16,3 +16,17 @@
     <a href="index.html">Back to home</a>
 
 <?php include "footer.php" ?>
+
+<?php
+
+if (isset($_POST['submit'])) {
+	session_start();
+	$db = mysqli_connect('localhost', 'root', '', 'crud');
+
+	$nome = $_POST['nome'];
+	$endereco = $_POST['endereco'];
+	$idade = $_POST['idade'];
+
+	mysqli_query($db, "INSERT INTO aluno (nome, endereco, idade) VALUES ('$nome', '$endereco', '$idade')");
+}
+?>

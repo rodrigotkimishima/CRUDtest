@@ -3,7 +3,7 @@
     
     <ul>
       <li>
-        <a href="create.html"><strong>Adicionar Aluno</strong></a> - Adiciona aluno ao banco
+        <a href="create.php"><strong>Adicionar Aluno</strong></a> - Adiciona aluno ao banco
       </li>
       <li>
         <a href="read.php"><strong>Listar Alunos</strong></a> - Lista os alunos do banco
