@@ -28,5 +28,7 @@ if (isset($_POST['submit'])) {
 	$idade = $_POST['idade'];
 
 	mysqli_query($db, "INSERT INTO aluno (nome, endereco, idade) VALUES ('$nome', '$endereco', '$idade')");
+	$_SESSION['message'] = "aluno cadastrado";
+	header('location: index.php');
 }
 ?>
