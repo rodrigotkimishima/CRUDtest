@@ -43,16 +43,16 @@ if (isset($_POST['checkcep'])){
     	<input type="text" name="nome" id="nome" value="<?php if(isset($_POST['nome'])){echo $_POST['nome'];} ?>"><br>
     	<label for="idade">Idade</label>
         <input type="text" name="idade" id="idade" value="<?php if(isset($_POST['idade'])){echo $_POST['idade'];} ?>"><br>
-    	<label for="endereco">CEP</label>
+    	<label for="cep">CEP</label>
     	<input type="text" name="cep" id="cep" maxlength="8" value="<?php if(isset($_POST['cep'])){echo $_POST['cep'];} ?>">
 		<button type="check" name="checkcep" value="Checar CEP">Checar CEP</button><br>
-		<label for="idade">Estado</label>
+		<label for="estado">Estado</label>
         <input type="text" name="estado" id="estado" value="<?php if (isset($_POST['checkcep'])){echo $estado;} ?>"><br>
-		<label for="idade">Cidade</label>
+		<label for="cidade">Cidade</label>
         <input type="text" name="cidade" id="cidade" value="<?php if (isset($_POST['checkcep'])){echo $cidade;} ?>"><br>
-		<label for="idade">Bairro</label>
+		<label for="bairro">Bairro</label>
         <input type="text" name="bairro" id="bairro" value="<?php if (isset($_POST['checkcep'])){echo $bairro;} ?>"><br>
-		<label for="idade">Rua</label>
+		<label for="rua">Rua</label>
         <input type="text" name="rua" id="rua" value="<?php if (isset($_POST['checkcep'])){echo $rua;} ?>"><br>
         
     	<input type="submit" name="submit" value="Submit">
