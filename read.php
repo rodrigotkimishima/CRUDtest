@@ -11,7 +11,7 @@ $results = mysqli_query($db, "SELECT * FROM aluno"); ?>
 	<thead>
 		<tr>
 			<th>Nome</th>
-			<th>Endereco</th>
+			<th>CEP</th>
             <th>Idade</th>
 			<th colspan="5"></th>
 		</tr>
@@ -20,7 +20,7 @@ $results = mysqli_query($db, "SELECT * FROM aluno"); ?>
 	<?php while ($row = mysqli_fetch_array($results)) { ?>
 		<tr>
 			<td><?php echo $row['nome']; ?></td>
-			<td><?php echo $row['endereco']; ?></td>
+			<td><?php echo $row['cep']; ?></td>
             <td><?php echo $row['idade']; ?></td>
 			<td>
 				<a href="edit.php?id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>

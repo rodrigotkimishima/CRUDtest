@@ -19,8 +19,8 @@
         <form method="post">
         <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome" value=<?php echo $nome ?>><br>
-        <label for="endereco">Endereço</label>
-        <input type="text" name="endereco" id="endereco" value=<?php echo $endereco ?>><br>
+        <label for="endereco">CEP</label>
+        <input type="text" name="cep" id="cep" value=<?php echo $endereco ?>><br>
         <label for="idade">Idade</label>
         <input type="text" name="idade" id="idade" value=<?php echo $idade ?>><br>
             
@@ -31,10 +31,10 @@
 	$db = mysqli_connect('localhost', 'root', '', 'crud');
 
 	$nome = $_POST['nome'];
-	$endereco = $_POST['endereco'];
+	$cep = $_POST['cep'];
 	$idade = $_POST['idade'];
 
-	mysqli_query($db, "UPDATE aluno SET nome='$nome', endereco='$endereco', idade='$idade' WHERE id='$id'");
+	mysqli_query($db, "UPDATE aluno SET nome='$nome', cep='$cep', idade='$idade' WHERE id='$id'");
     $_SESSION['message'] = "edicao concluida.";
     header('location: read.php');
 }
