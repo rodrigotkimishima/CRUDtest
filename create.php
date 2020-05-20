@@ -67,13 +67,27 @@ if (isset($_POST['checkcep'])){
 if (isset($_POST['submit']) && strlen($_POST['cep']) == 8) {
 	session_start();
 	$db = mysqli_connect('localhost', 'root', '', 'crud');
+	if ($db -> connect_errno) {
+		echo "Failed to connect to MySQL: " . $db -> connect_error;
+		exit();
+	}
 
 	$nome = $_POST['nome'];
 	$cep = $_POST['cep'];
 	$idade = $_POST['idade'];
+	$estado = $_POST['estado'];
+	$cidade = $_POST['cidade'];
+	$bairro = $_POST['bairro'];
+	$rua = $_POST['rua'];
 
-	mysqli_query($db, "INSERT INTO aluno (nome, cep, idade) VALUES ('$nome', '$cep', '$idade')");
-	$_SESSION['message'] = "aluno cadastrado";
+	if(mysqli_query($db, "INSERT INTO aluno (nome, cep, idade, estado, cidade, bairro, rua) VALUES ('$nome', '$cep', '$idade', '$estado', '$cidade', '$bairro', '$rua')")){
+		
+		$_SESSION['message'] = "Aluno cadastrado.";
+	}
+	else{
+		$_SESSION['message'] = "Erro ao cadastrar aluno.";
+	}
+	mysqli_close($db);
 	header('location: index.php');
 }
 ?>
