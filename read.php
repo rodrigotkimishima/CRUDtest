@@ -13,6 +13,10 @@ $results = mysqli_query($db, "SELECT * FROM aluno"); ?>
 			<th>Nome</th>
 			<th>CEP</th>
             <th>Idade</th>
+			<th>Estado</th>
+			<th>Cidade</th>
+			<th>Bairro</th>
+			<th>Rua</th>
 			<th colspan="5"></th>
 		</tr>
 	</thead>
@@ -22,6 +26,10 @@ $results = mysqli_query($db, "SELECT * FROM aluno"); ?>
 			<td><?php echo $row['nome']; ?></td>
 			<td><?php echo $row['cep']; ?></td>
             <td><?php echo $row['idade']; ?></td>
+			<td><?php echo $row['estado']; ?></td>
+			<td><?php echo $row['cidade']; ?></td>
+			<td><?php echo $row['bairro']; ?></td>
+			<td><?php echo $row['rua']; ?></td>
 			<td>
 				<a href="edit.php?id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
 			</td>
