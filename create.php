@@ -61,7 +61,7 @@ if (isset($_POST['checkcep'])){
     	<input type="submit" name="submit" value="Submit">
     </form>
 
-    <a href="index.php">Back to home</a>
+    <a href="index.php">Back to ahome</a>
 
 <?php include "footer.php" ?>
 
