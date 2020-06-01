@@ -7,7 +7,6 @@
 	//criando objeto aluno
 	$aluno = new Aluno;
 
-    session_start();
     $db = mysqli_connect('localhost', 'root', '', 'crud');
 	$id = $_GET['id'];
 	$update = true;
@@ -85,7 +84,7 @@
 
     function editAluno($aluno,$id){
         //conexao ao banco
-		$db = mysqli_connect('localhost', 'root', '', 'crud');
+		$db = connect_database()
 		if ($db -> connect_errno) {
 			echo "Failed to connect to MySQL: " . $db -> connect_error;
 			exit();
@@ -100,8 +99,7 @@
 		$rua = $aluno->getRua();
         //alterando no banco
         mysqli_query($db, "UPDATE aluno SET nome='$nome', cep='$cep', idade='$idade', estado='$estado', cidade='$cidade', bairro='$bairro', rua='$rua' WHERE id='$id'");
-        $_SESSION['message'] = "edicao concluida.";
-        header('location: read.php');
+        header('location: index.php?action=2');
 
         //fechando conexao
         mysqli_close($db);
