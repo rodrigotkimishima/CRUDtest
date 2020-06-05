@@ -265,26 +265,36 @@ if (isset($_GET['action'])) {
         }
         
         ?>
+        <div class="container">
             <br>
             <form method="post">
-            <label for="nome">  Nome</label><br>
-            <input type="text" name="nome" id="nome" value=<?php echo $aluno->getNome(); ?>><br>
-            <label for="idade">  Data De Nascimento</label><br>
-            <input type="date" name="idade" id="idade" value=<?php echo $aluno->getIdade(); ?>><br>
-            <label for="cep">  CEP</label><br>
-            <input type="text" name="cep" id="cep" value=<?php echo $aluno->getCep(); ?>>
-            <button type="check" name="checkcep" value="Checar CEP">Checar CEP</button><br>
-            <label for="estado">  Estado</label><br>
-            <input type="text" name="estado" id="estado" value="<?php echo $aluno->getEstado(); ?>"><br>
-            <label for="cidade">  Cidade</label><br>
-            <input type="text" name="cidade" id="cidade" value="<?php echo $aluno->getCidade(); ?>"><br>
-            <label for="bairro">  Bairro</label><br>
-            <input type="text" name="bairro" id="bairro" value="<?php echo $aluno->getBairro(); ?>"><br>
-            <label for="rua">  Rua</label><br>
-            <input type="text" name="rua" id="rua" value="<?php echo $aluno->getRua(); ?>"><br>
-            <br>
-            <input type="submit" name="submit" value="Salvar alteracoes">
+            <div class="row">
+                <div class="input-field col s12 m8">
+                    <label class="active" for="nome">Nome</label>
+                    <input placeholder="Nome" id="nome" type="text" class="validate">
+                </div>
+                <div class="input-field col s12 m4">
+                    <label class="active" for="idade">Data De Nascimento</label>
+                    <input placeholder="" type="date" id="idade" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10 m4">
+                    <label class="active" for="cep">CEP</label>
+                    <input placeholder="CEP" id="cep" type="text" class="validate">
+                </div>
+                <button type="check" name="checkcep" value="Checar CEP">Checar CEP</button>
+                <label for="estado">  Estado</label>
+                <input type="text" name="estado" id="estado" value="<?php echo $aluno->getEstado(); ?>">
+                <label for="cidade">  Cidade</label>
+                <input type="text" name="cidade" id="cidade" value="<?php echo $aluno->getCidade(); ?>">
+                <label for="bairro">  Bairro</label>
+                <input type="text" name="bairro" id="bairro" value="<?php echo $aluno->getBairro(); ?>">
+                <label for="rua">  Rua</label>
+                <input type="text" name="rua" id="rua" value="<?php echo $aluno->getRua(); ?>">
+                <input type="submit" name="submit" value="Salvar alteracoes">
             </form>
+        </div>
         <?php
         if (isset($_POST['submit'])) {
             $aluno->setNome($_POST['nome']);
@@ -302,5 +312,6 @@ if (isset($_GET['action'])) {
 }?>
 </div>
 </div>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
