@@ -2,49 +2,47 @@
 
     <h2>CRUD - Editar Aluno</h2>
 
-<?php 
+<?php
     include "objectAluno.php";
-	//criando objeto aluno
-	$aluno = new Aluno;
+//criando objeto aluno
+$aluno = new Aluno;
 
-    $db = mysqli_connect('localhost', 'root', '', 'crud');
-	$id = $_GET['id'];
-	$update = true;
-	$record = mysqli_query($db, "SELECT * FROM aluno WHERE id='$id'");
+$db = mysqli_connect('localhost', 'root', '', 'crud');
+$id = $_GET['id'];
+$update = true;
+$record = mysqli_query($db, "SELECT * FROM aluno WHERE id='$id'");
 
-	$n = mysqli_fetch_object($record);
-	$aluno->setNome($n->nome);
-    $aluno->setCep($n->cep);
-    $aluno->setIdade($n->idade);
-    $aluno->setEstado($n->estado);
-    $aluno->setCidade($n->cidade);
-    $aluno->setBairro($n->bairro);
-    $aluno->setRua($n->rua);
+$n = mysqli_fetch_object($record);
+$aluno->setNome($n->nome);
+$aluno->setCep($n->cep);
+$aluno->setIdade($n->idade);
+$aluno->setEstado($n->estado);
+$aluno->setCidade($n->cidade);
+$aluno->setBairro($n->bairro);
+$aluno->setRua($n->rua);
     
-    if (isset($_POST['checkcep'])){
-        if(strlen($_POST['cep']) == 8){
-            $cep = $_POST['cep'];
-            $url = "viacep.com.br/ws/$cep/json/";
-            $ch  = curl_init($url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-            $retorno = curl_exec($ch);
-            if($retorno == 400){
-                echo '<script>alert("CEP Inválido")</script>';
-            }
-            else{
-                $retorno = json_decode($retorno);
-                $aluno->setEstado($retorno->uf);
-			    $aluno->setCidade($retorno->localidade);
-			    $aluno->setBairro($retorno->bairro);
-			    $aluno->setRua($retorno->logradouro);
-            }
-        }
-        else{
+if (isset($_POST['checkcep'])) {
+    if (strlen($_POST['cep']) == 8) {
+        $cep = $_POST['cep'];
+        $url = "viacep.com.br/ws/$cep/json/";
+        $ch  = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        $retorno = curl_exec($ch);
+        if ($retorno == 400) {
             echo '<script>alert("CEP Inválido")</script>';
+        } else {
+            $retorno = json_decode($retorno);
+            $aluno->setEstado($retorno->uf);
+            $aluno->setCidade($retorno->localidade);
+            $aluno->setBairro($retorno->bairro);
+            $aluno->setRua($retorno->logradouro);
         }
+    } else {
+        echo '<script>alert("CEP Inválido")</script>';
     }
+}
     
 ?>
         <form method="post">
